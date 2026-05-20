@@ -66,20 +66,20 @@
   },
   "suites": [
     {
-      "title": "create_document.spec.ts",
-      "file": "create_document.spec.ts",
+      "title": "Approve_document.spec.ts",
+      "file": "Approve_document.spec.ts",
       "column": 0,
       "line": 0,
       "specs": [],
       "suites": [
         {
-          "title": "End-to-End Create Document Flow",
-          "file": "create_document.spec.ts",
-          "line": 37,
+          "title": "Approve Document — End-to-End Flow",
+          "file": "Approve_document.spec.ts",
+          "line": 35,
           "column": 6,
           "specs": [
             {
-              "title": "TC-CD-001 : ล็อกอิน → สร้างเอกสาร → ตรวจสอบ Document Detail",
+              "title": "TC-01: Login → Navigate to Approve → Approve Document → Confirm Success",
               "ok": true,
               "tags": [],
               "tests": [
@@ -94,34 +94,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1986,
+                      "duration": 1384,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "steps": [
-                        {
-                          "title": "Step 1 — Login with maker1",
-                          "duration": 670
-                        },
-                        {
-                          "title": "Step 2 — Navigate to My Documents via Sidebar",
-                          "duration": 172
-                        },
-                        {
-                          "title": "Step 3 — Click Create Document button",
-                          "duration": 166
-                        },
-                        {
-                          "title": "Step 4 — Fill form and Submit for Approval",
-                          "duration": 549
-                        },
-                        {
-                          "title": "Step 5 — Open Document Detail and verify",
-                          "duration": 157
-                        }
-                      ],
-                      "startTime": "2026-05-19T07:40:20.996Z",
+                      "startTime": "2026-05-20T02:03:32.311Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -129,9 +107,78 @@
                   "status": "expected"
                 }
               ],
-              "id": "1bd22a21782b13a3be7a-db0c7fa3af04af312ebf",
-              "file": "create_document.spec.ts",
-              "line": 48,
+              "id": "862e23e078478f82a42e-4d4b332e22894c4473d9",
+              "file": "Approve_document.spec.ts",
+              "line": 47,
+              "column": 7
+            },
+            {
+              "title": "TC-02: Login → Navigate to Approve → Open Modal → Cancel (modal closes)",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 5752,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('table')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('table')\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('table')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('table')\u001b[22m\n\n    at ApprovePage.assertPageLoaded (C:\\MyQAProject\\tests\\pages\\approve.page.ts:132:39)\n    at C:\\MyQAProject\\tests\\specs\\Approve_document.spec.ts:143:5",
+                        "location": {
+                          "file": "C:\\MyQAProject\\tests\\pages\\approve.page.ts",
+                          "column": 39,
+                          "line": 132
+                        },
+                        "snippet": "\u001b[90m   at \u001b[39m..\\pages\\approve.page.ts:132\n\n\u001b[0m \u001b[90m 130 |\u001b[39m     \u001b[36mawait\u001b[39m expect(\u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mpage)\u001b[33m.\u001b[39mtoHaveURL(\u001b[35m/\\/approve/\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 131 |\u001b[39m     \u001b[36mawait\u001b[39m expect(\u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mpageHeading)\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 132 |\u001b[39m     \u001b[36mawait\u001b[39m expect(\u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mdocumentsTable)\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                                       \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 133 |\u001b[39m   }\n \u001b[90m 134 |\u001b[39m\n \u001b[90m 135 |\u001b[39m   \u001b[90m/** ตรวจสอบว่า modal เปิดขึ้นมาและหัว modal ถูกต้อง */\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "C:\\MyQAProject\\tests\\pages\\approve.page.ts",
+                            "column": 39,
+                            "line": 132
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('table')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('table')\u001b[22m\n\n\n\u001b[90m   at \u001b[39m..\\pages\\approve.page.ts:132\n\n\u001b[0m \u001b[90m 130 |\u001b[39m     \u001b[36mawait\u001b[39m expect(\u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mpage)\u001b[33m.\u001b[39mtoHaveURL(\u001b[35m/\\/approve/\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 131 |\u001b[39m     \u001b[36mawait\u001b[39m expect(\u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mpageHeading)\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 132 |\u001b[39m     \u001b[36mawait\u001b[39m expect(\u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mdocumentsTable)\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                                       \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 133 |\u001b[39m   }\n \u001b[90m 134 |\u001b[39m\n \u001b[90m 135 |\u001b[39m   \u001b[90m/** ตรวจสอบว่า modal เปิดขึ้นมาและหัว modal ถูกต้อง */\u001b[39m\u001b[0m\n\u001b[2m    at ApprovePage.assertPageLoaded (C:\\MyQAProject\\tests\\pages\\approve.page.ts:132:39)\u001b[22m\n\u001b[2m    at C:\\MyQAProject\\tests\\specs\\Approve_document.spec.ts:143:5\u001b[22m"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-05-20T02:03:33.967Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "C:\\MyQAProject\\reports\\test-results\\Approve_document-Approve-D-4c4f3-odal-→-Cancel-modal-closes--chromium\\test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "C:\\MyQAProject\\reports\\test-results\\Approve_document-Approve-D-4c4f3-odal-→-Cancel-modal-closes--chromium\\error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "C:\\MyQAProject\\tests\\pages\\approve.page.ts",
+                        "column": 39,
+                        "line": 132
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "862e23e078478f82a42e-d82c8023657964c33b4e",
+              "file": "Approve_document.spec.ts",
+              "line": 130,
               "column": 7
             }
           ]
@@ -141,11 +188,11 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-05-19T07:40:20.452Z",
-    "duration": 3091.346,
+    "startTime": "2026-05-20T02:03:31.762Z",
+    "duration": 8323.579000000002,
     "expected": 1,
     "skipped": 0,
-    "unexpected": 0,
+    "unexpected": 1,
     "flaky": 0
   }
 }

@@ -30,12 +30,14 @@ export class ApprovePage {
   // ── Approve modal (nz-modal) ──────────────────────────────────────────────
   // .ant-modal-content ครอบ header + body + footer ทั้งหมด
   readonly approveModal: Locator;
-  readonly approveModalTitle: Locator;
+  readonly approveModalTitle: Locator;   // [FIXED] .ant-modal-title
 
   // ── Modal — Document detail fields ───────────────────────────────────────
   // NG-ZORRO nz-descriptions render เป็น div-based table ไม่ใช่ <table>
   // ใช้ modal body เป็น container แล้ว toContainText()
   readonly approveModalBody: Locator;
+  // [ADDED] paragraph "Approving: <docNumber> - <title>" ใน modal body
+  readonly approveModalDocInfo: Locator;
 
   // ── Modal — action buttons ────────────────────────────────────────────────
   readonly modalApproveButton: Locator;   // ปุ่ม "Approve" ใน modal footer
@@ -49,7 +51,8 @@ export class ApprovePage {
     this.page = page;
 
     // Heading
-    this.pageHeading = page.getByRole('heading', { name: /Approve Documents/i }).first();
+    // [FIXED] live DOM shows "Pending Approvals" not "Approve Documents"
+    this.pageHeading = page.getByRole('heading', { name: /Pending Approvals/i }).first();
 
     // Table
     this.documentsTable = page.locator('table');
@@ -60,8 +63,11 @@ export class ApprovePage {
 
     // Modal container — .ant-modal-content ครอบทุกอย่างใน modal
     this.approveModal      = page.locator('.ant-modal-content');
-    this.approveModalTitle = page.locator('.ant-modal-header').getByText(/Approve Document/i);
+    // [FIXED] ใช้ .ant-modal-title (verified by live DOM crawl 2025-05-20)
+    this.approveModalTitle = page.locator('.ant-modal-title');
     this.approveModalBody  = page.locator('.ant-modal-body');
+    // [ADDED] paragraph ใน modal body แสดง "Approving: <docNumber> - <title>"
+    this.approveModalDocInfo = page.locator('.ant-modal-body p').first();
 
     // Modal buttons — อยู่ใน .ant-modal-footer
     // ใช้ role + name เพื่อ distinguish จากปุ่มบนหน้าหลัก
